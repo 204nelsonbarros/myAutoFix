@@ -32,7 +32,7 @@ myAutoFix é um aplicativo móvel híbrido criado com Ionic e Angular, projetado
 
 ## Como Usar
 1. Baixe o arquivo ZIP do repositório:
-   - Acesse [https://github.com/seu-usuario/myAutoFix](https://github.com/seu-usuario) e clique em "Code" > "Download ZIP".
+   - Acesse https://github.com/204nelsonbarros/myAutoFix/tree/main e clique em "Code" > "Download ZIP".
 2. Extraia o arquivo ZIP para uma pasta de sua escolha:
 Cd até a sua pasta e execute
 -npm install
