@@ -39,14 +39,14 @@ Cd até a sua pasta e execute
 -ionic serve
 
 
-autores 
+##autores 
 1- Laurindo Paulo;
 2- Nelson Jamba
 4- Dário Tapalo;
 4- Joaquim Victor;
 5- Luís Ngunga.
 
-Agradecimentos
+##Agradecimentos
 Agradecemos ao Instituto Politécnico da Huíla (IPH) e aos professores da disciplina de Computação Móvel pelo suporte, com destaque especial ao professor José João,
 dono da cadeira. Também agradecemos à comunidade Ionic, Angular, Leaflet, Firebase e Capacitor, além do suporte da xAI na criação deste projeto.
 
