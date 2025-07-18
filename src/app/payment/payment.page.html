@@ -1,0 +1,147 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/mechanic-details"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Efetuar Pagamento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Detalhes do Serviço</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item lines="none">
+        <ion-label><strong>Serviço:</strong> {{serviceType}}</ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label><strong>Valor:</strong> {{serviceValue | currency:'AKZ '}}</ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Métodos de Pagamento</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-accordion-group [(ngModel)]="selectedPaymentMethod" (ionChange)="onPaymentMethodChange()">
+        <ion-accordion value="multicaixa">
+          <ion-item slot="header">
+            <ion-icon name="phone-portrait-outline" slot="start"></ion-icon>
+            <ion-label>Multicaixa Express</ion-label>
+          </ion-item>
+          <div slot="content">
+            <ion-text>
+              <p><strong>Passos:</strong></p>
+              <ol>
+                <li>Abra a app Multicaixa Express</li>
+                <li>Vá em "Pagamentos" > "Express"</li>
+                <li>Nome: myAutoFix</li>
+                <li>Número: 921516660</li>
+                <li>Valor: {{serviceValue | currency:'AKZ '}}</li>
+                <li>Confirme o pagamento</li>
+              </ol>
+            </ion-text>
+          </div>
+        </ion-accordion>
+
+        <ion-accordion value="baipay">
+          <ion-item slot="header">
+            <ion-icon name="card-outline" slot="start"></ion-icon>
+            <ion-label>BAI Pay</ion-label>
+          </ion-item>
+          <div slot="content">
+            <ion-text>
+              <p><strong>Passos:</strong></p>
+              <ol>
+                <li>Abra a app BAI Directo</li>
+                <li>Vá em "Pagamentos" > "Serviços"</li>
+                <li>Use os dados abaixo:
+                  <ul>
+                    <li>Entidade: 21234</li>
+                    <li>Referência: 104204908</li>
+                    <li>Valor: {{serviceValue | currency:'AKZ '}}</li>
+                  </ul>
+                </li>
+                <li>Confirme o pagamento</li>
+              </ol>
+            </ion-text>
+          </div>
+        </ion-accordion>
+
+        <ion-accordion value="referencia">
+          <ion-item slot="header">
+            <ion-icon name="business-outline" slot="start"></ion-icon>
+            <ion-label>Pagamento por Referência</ion-label>
+          </ion-item>
+          <div slot="content">
+            <ion-text>
+              <p>Use um terminal Multicaixa ou app do seu banco para pagar:</p>
+              <ul>
+                <li>Entidade: 21234</li>
+                <li>Referência: 104204908</li>
+                <li>Valor: {{serviceValue | currency:'AKZ '}}</li>
+              </ul>
+            </ion-text>
+          </div>
+        </ion-accordion>
+
+        <ion-accordion value="visa-mastercard">
+          <ion-item slot="header">
+            <ion-icon name="card-outline" slot="start"></ion-icon>
+            <ion-label>Visa/Mastercard</ion-label>
+          </ion-item>
+          <div slot="content">
+            <ion-text>
+              <p>Pagamento com cartão de crédito ou débito:</p>
+              <p>Neste momento, este método deve ser feito via link externo.</p>
+            </ion-text>
+            <ion-button expand="block" (click)="requestPaymentLink()">
+              Solicitar link de pagamento
+            </ion-button>
+          </div>
+        </ion-accordion>
+
+        <ion-accordion value="dinheiro">
+          <ion-item slot="header">
+            <ion-icon name="cash-outline" slot="start"></ion-icon>
+            <ion-label>Pagamento em Dinheiro</ion-label>
+          </ion-item>
+          <div slot="content">
+            <ion-text>
+              <p>Pode pagar diretamente ao motorista/rebocador no momento do atendimento.</p>
+              <p><strong>Guarde o recibo físico como comprovativo.</strong></p>
+            </ion-text>
+            <ion-button expand="block" (click)="confirmPayment()">
+              Efetuar Pagamento
+            </ion-button>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Enviar Comprovativo</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-text>
+        <p>Após efetuar o pagamento, envie o comprovativo para o nosso WhatsApp:</p>
+        <p><strong>+244 921 516 660</strong></p>
+      </ion-text>
+      
+      <ion-button expand="block" (click)="openWhatsApp()">
+        <ion-icon name="logo-whatsapp" slot="start"></ion-icon>
+        Enviar Comprovativo
+      </ion-button>
+      
+      <ion-button expand="block" (click)="confirmPayment()" [disabled]="!isPaymentButtonEnabled()">
+        Efetuar Pagamento
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

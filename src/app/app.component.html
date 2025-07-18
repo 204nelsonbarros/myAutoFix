@@ -1,0 +1,23 @@
+<ion-app>
+  <ion-router-outlet></ion-router-outlet>
+  <ion-tabs *ngIf="showTabs">
+    <ion-tab-bar slot="bottom" class="white-tab-bar animate__animated animate__fadeInUp">
+      <ion-tab-button tab="home" selected>
+        <ion-icon name="home"></ion-icon>
+        <ion-label>Início</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="services">
+        <ion-icon name="construct"></ion-icon>
+        <ion-label>Serviços</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="history">
+        <ion-icon name="time"></ion-icon>
+        <ion-label>Histórico</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="profile">
+        <ion-icon name="person"></ion-icon>
+        <ion-label>Perfil</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-app>

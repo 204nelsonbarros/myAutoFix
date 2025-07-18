@@ -1,0 +1,63 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+ion-content {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --padding-top: 16px;
+  --padding-bottom: 16px;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px; 
+
+  .logo {
+    width: 150px;
+    height: auto;
+  }
+}
+
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px; 
+}
+
+.option-card {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  text-align: center;
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  img {
+    width: 100%;              
+    max-width: 200px;          
+    height: 200px;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+    background-color: #f0f0f0;
+    border-radius: 8px;        
+  }
+}
+
+ion-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  ion-card-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+}

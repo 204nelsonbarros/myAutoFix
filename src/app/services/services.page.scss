@@ -1,0 +1,29 @@
+/* Estilos para a página de serviços */
+.image-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+  
+  .service-image {
+    max-width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+}
+
+.service-button {
+  margin-top: 16px;
+}
+
+ion-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  
+  ion-card-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+}

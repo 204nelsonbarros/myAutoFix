@@ -1,0 +1,40 @@
+ion-card {
+  margin-bottom: 20px;
+
+  ion-card-header {
+    padding-bottom: 0;
+
+    ion-card-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    ion-card-subtitle {
+      font-size: 0.9rem;
+      color: #666;
+    }
+  }
+
+  ion-card-content {
+    padding-top: 0;
+
+    ion-item {
+      --padding-start: 0;
+      --inner-padding-end: 0;
+    }
+
+    ion-icon {
+      font-size: 1.5rem;
+      margin-left: 5px;
+      cursor: pointer;
+    }
+  }
+}
+
+ion-button {
+  margin-top: 10px;
+}
+
+ion-textarea {
+  min-height: 100px;
+}

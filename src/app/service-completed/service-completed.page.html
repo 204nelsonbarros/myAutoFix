@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>myAutoFix</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Serviço Concluído</ion-card-title>
+      <ion-card-subtitle>Seu pagamento foi processado. Aqui está um resumo do serviço prestado.</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item lines="none">
+        <ion-label><strong>Resumo do Serviço</strong></ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label><strong>Tipo de Serviço</strong></ion-label>
+        <ion-label slot="end">Troca de Pneu</ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label><strong>Valor</strong></ion-label>
+        <ion-label slot="end">{{ serviceValue }} AOA</ion-label> <!-- Valor dinâmico -->
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label><strong>Localização</strong></ion-label>
+        <ion-label slot="end">Rua Principal, 123, Anytown</ion-label>
+      </ion-item>
+   
+      <ion-item lines="none">
+        <ion-label><strong>Status</strong></ion-label>
+        <ion-label slot="end" color="success">Concluído</ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label><strong>Data do Pagamento</strong></ion-label>
+        <ion-label slot="end">{{ paymentDate }}</ion-label>
+      </ion-item>
+      <ion-item lines="none" *ngIf="paymentTime">
+        <ion-label><strong>Horário do Pagamento</strong></ion-label>
+        <ion-label slot="end">{{ paymentTime }}</ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Avalie sua Experiência</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item lines="none">
+        <ion-label>
+          <h3>4.5 ★★★★★</h3>
+          <p>2 avaliações</p>
+        </ion-label>
+        <ion-label slot="end">
+          <p><small>Distribuição das avaliações:</small></p>
+          <div>
+            <span>5 ★</span> <ion-progress-bar value="0.5"></ion-progress-bar> 50%
+          </div>
+          <div>
+            <span>4 ★</span> <ion-progress-bar value="0.3"></ion-progress-bar> 30%
+          </div>
+          <div>
+            <span>3 ★</span> <ion-progress-bar value="0.1"></ion-progress-bar> 10%
+          </div>
+          <div>
+            <span>2 ★</span> <ion-progress-bar value="0.05"></ion-progress-bar> 5%
+          </div>
+          <div>
+            <span>1 ★</span> <ion-progress-bar value="0.05"></ion-progress-bar> 5%
+          </div>
+        </ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="block" color="danger" (click)="sendFeedback()">
+    Enviar Feedback
+  </ion-button>
+  <ion-button expand="block" fill="outline" (click)="goToHome()">
+    Voltar para a Página Inicial
+  </ion-button>
+</ion-content>

@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/assistance-type"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Lista de Reboques</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6" size-lg="4" *ngFor="let tow of towServices">
+        <ion-card (click)="goToTowDetails(tow.id)">
+          <div class="tow-image-container">
+            <img class="tow-image" [src]="tow.image" alt="{{tow.name}}" (error)="handleImageError($event)">
+          </div>
+          <ion-card-header>
+            <ion-card-title>{{tow.name}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>{{tow.description}}</p>
+            <ion-button expand="block">Saiba mais</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

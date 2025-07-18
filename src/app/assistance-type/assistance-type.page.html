@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/services"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Tipo de Assistência</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="logo-container">
+    <ion-card-title>myAutoFix</ion-card-title>
+  </div>
+
+  <h2 class="ion-text-center">Que tipo de ajuda você precisa?</h2>
+
+  <div class="options-container">
+    <ion-card (click)="selectAssistanceType('mechanic')" class="option-card">
+      <img src="assets/images/enviar.png" alt="Mecânico">
+      <ion-card-header>
+        <ion-card-title>Enviar um mecânico</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+
+    <ion-card (click)="selectAssistanceType('tow')" class="option-card">
+      <img src="assets/images/solicitar.png" alt="Reboque">
+      <ion-card-header>
+        <ion-card-title>Solicitar um reboque</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </div>
+</ion-content>

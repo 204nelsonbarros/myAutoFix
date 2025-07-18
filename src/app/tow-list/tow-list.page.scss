@@ -1,0 +1,36 @@
+/* Container que respeita o tamanho natural da imagem */
+.profile-image-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  max-width: 100%; /* Limita a largura máxima ao container pai */
+  
+  .profile-image {
+    width: auto;       /* Mantém a largura original */
+    height: auto;      /* Mantém a altura original */
+    max-width: 100%;   /* Garante que não ultrapasse o container */
+    max-height: 300px; /* Altura máxima opcional (ajuste conforme necessário) */
+    object-fit: contain; /* Mantém proporções sem cortar */
+    border-radius: 8px; /* Borda arredondada sutil */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Versão alternativa para foto de perfil circular (opcional) */
+.profile-image-container.circle {
+  .profile-image {
+    border-radius: 50%;
+    border: 3px solid var(--ion-color-primary);
+    /* Para garantir que imagens não quadradas fiquem circulares */
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  }
+}
+
+/* Restante do CSS permanece igual */
+ion-card {
+  margin: 10px 0;
+  text-align: center;
+  
+  /* ... outros estilos ... */
+}

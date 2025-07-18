@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/services"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Selecionar Localização</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-searchbar [(ngModel)]="searchQuery" (ionChange)="searchLocation()" placeholder="Pesquisar local"></ion-searchbar>
+
+  <div *ngIf="isLoading" class="spinner-container">
+    <ion-spinner name="crescent"></ion-spinner>
+  </div>
+
+  <div id="map"></div>
+
+  <ion-button expand="block" (click)="marcarLocalizacaoAtual()">Marcar Localização Atual</ion-button>
+  <ion-button expand="block" color="success" (click)="continuar()">Continuar</ion-button>
+</ion-content>

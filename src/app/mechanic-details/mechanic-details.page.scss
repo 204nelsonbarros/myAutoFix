@@ -1,0 +1,52 @@
+/* Estilos para foto de perfil */
+.profile-image-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  width: 150px;
+  height: 150px;
+  
+  .profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%; /* Formato circular */
+    border: 3px solid var(--ion-color-primary); /* Borda colorida */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+ion-card {
+  margin: 10px 0;
+  text-align: center; /* Centraliza o conteúdo */
+  
+  ion-card-header {
+    padding-bottom: 0; /* Reduz espaço abaixo do título */
+  }
+  
+  ul {
+    padding-left: 20px;
+    text-align: left; /* Alinha a lista à esquerda */
+    
+    li {
+      margin: 5px 0;
+    }
+  }
+  
+  ion-button {
+    margin: 8px 0;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  ion-card-content {
+    padding: 16px;
+  }
+}
+
+/* Estilo especial para o botão principal */
+#hireButton {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

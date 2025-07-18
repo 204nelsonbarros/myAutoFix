@@ -1,0 +1,75 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="custom-toolbar">
+    <ion-title class="animate__animated animate__fadeIn" style="text-align: center">myAutoFix - {{ userName }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="white-background">
+  <!-- Seção de localização com animação -->
+  <div class="location-section animate__animated animate__fadeInDown">
+    <h2>Onde você está?</h2>
+    <ion-item class="search-bar">
+      <ion-icon slot="start" name="search" color="color: #2c3e50;"></ion-icon>
+      <ion-input type="text" placeholder="Pesquisar endereço" [(ngModel)]="currentAddress" name="currentAddress"></ion-input>
+    </ion-item>
+  </div>
+
+  <!-- Seção de serviços populares com animação -->
+  <div class="services-section">
+    <h2 class="animate__animated animate__fadeIn">Serviços Populares</h2>
+    <div class="services-grid">
+      <!-- Troca de Pneu -->
+      <ion-card class="service-card animate__animated animate__fadeInUp"
+                [style.animation-delay]="'0.1s'"
+                (click)="selectService(popularServices[0])">
+        <div class="service-icon">
+          <img [src]="getSafeImagePath(popularServices[0].image)" alt="Troca de Pneu" class="service-image" (error)="handleImageError($event)">
+        </div>
+        <ion-card-header>
+          <ion-card-title>Troca de Pneu</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+
+      <!-- Partida com Bateria -->
+      <ion-card class="service-card animate__animated animate__fadeInUp"
+                [style.animation-delay]="'0.2s'"
+                (click)="selectService(popularServices[1])">
+        <div class="service-icon">
+          <img [src]="getSafeImagePath(popularServices[1].image)" alt="Partida com Bateria" class="service-image" (error)="handleImageError($event)">
+        </div>
+        <ion-card-header>
+          <ion-card-title>Partida com Bateria</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+
+      <!-- Entrega de Combustível -->
+      <ion-card class="service-card animate__animated animate__fadeInUp"
+                [style.animation-delay]="'0.3s'"
+                (click)="selectService(popularServices[2])">
+        <div class="service-icon">
+          <img [src]="getSafeImagePath(popularServices[2].image)" alt="Entrega de Combustível" class="service-image" (error)="handleImageError($event)">
+        </div>
+        <ion-card-header>
+          <ion-card-title>Entrega de Combustível</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+
+      <!-- Serviço de Chaveiro -->
+      <ion-card class="service-card animate__animated animate__fadeInUp"
+                [style.animation-delay]="'0.4s'"
+                (click)="selectService(popularServices[3])">
+        <div class="service-icon">
+          <img [src]="getSafeImagePath(popularServices[3].image)" alt="Serviço de Chaveiro" class="service-image" (error)="handleImageError($event)">
+        </div>
+        <ion-card-header>
+          <ion-card-title>Serviço de Chaveiro</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>

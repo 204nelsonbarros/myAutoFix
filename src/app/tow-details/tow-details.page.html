@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tow-list"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalhes do Reboque</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card *ngIf="towService">
+    <div class="driver-image-container">
+      <img class="driver-image" [src]="towService.driverImage" alt="Foto do Motorista" (error)="handleImageError($event)">
+    </div>
+    <ion-card-header>
+      <ion-card-title>{{towService.name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="details-container">
+        <p><strong>Matrícula:</strong> {{towService.licensePlate}}</p>
+        <p><strong>Descrição:</strong> {{towService.description}}</p>
+        <p><strong>Contato:</strong> {{towService.contact}}</p>
+      </div>
+      
+      <div class="list-container">
+        <h3>Serviços Prestados</h3>
+        <ul>
+          <li *ngFor="let service of towService.services">{{service}}</li>
+        </ul>
+      </div>
+      
+      <ion-button expand="block" (click)="hireTowService()">Contratar Reboque</ion-button>
+      <ion-button expand="block" color="success" (click)="callTowService()">Ligar</ion-button>
+      <ion-button expand="block" color="warning" (click)="sendMessage()">Enviar Mensagem</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

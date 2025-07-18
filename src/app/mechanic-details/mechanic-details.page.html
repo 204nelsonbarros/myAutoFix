@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/mechanics-list"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalhes do Mecânico</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card *ngIf="mechanic">
+    <div class="profile-image-container">
+      <img class="profile-image" [src]="mechanic.image" alt="{{mechanic.name}}" (error)="handleImageError($event)">
+    </div>
+    <ion-card-header>
+      <ion-card-title>{{mechanic.name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Descrição:</strong> {{mechanic.description}}</p>
+      <p><strong>Contato:</strong> {{mechanic.contact}}</p>
+      <div>
+        <h3>Serviços Prestados</h3>
+        <ul>
+          <li *ngFor="let service of mechanic.services">{{service}}</li>
+        </ul>
+      </div>
+      <ion-button expand="block" (click)="hireMechanic()" id="hireButton">Contratar Mecânico</ion-button>
+      <ion-button expand="block" color="success" (click)="callMechanic()">Ligar</ion-button>
+      <ion-button expand="block" color="warning" (click)="sendMessage()">Enviar Mensagem</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

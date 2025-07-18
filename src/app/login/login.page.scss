@@ -1,0 +1,28 @@
+.submit-button {
+  margin-top: 2rem;
+  height: 50px;
+  
+  ion-spinner {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.links-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  
+  .link-button {
+    --color: var(--ion-color-primary);
+    text-transform: none;
+    font-size: 0.9rem;
+  }
+}
+
+ion-note[color="danger"] {
+  font-size: 0.8rem;
+  margin-top: -0.20rem;
+  margin-bottom: 1rem;
+  display: block;
+}

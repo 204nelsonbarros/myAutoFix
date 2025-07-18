@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+    <!-- Campo Email -->
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input 
+        type="email" 
+        [(ngModel)]="email" 
+        name="email"
+        required
+        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"
+        #emailInput="ngModel"
+        [disabled]="isSubmitting"
+      ></ion-input>
+    </ion-item>
+    
+    <ion-note color="danger" *ngIf="emailInput.invalid && emailInput.touched">
+      <span *ngIf="emailInput.errors?.['required']">Email é obrigatório</span>
+      <span *ngIf="emailInput.errors?.['pattern']">
+        Formato de email inválido (exemplo: usuario&#64;dominio.com)
+      </span>
+    </ion-note>
+
+    <!-- Campo Senha -->
+    <ion-item>
+      <ion-label position="floating">Senha</ion-label>
+      <ion-input 
+        type="password" 
+        [(ngModel)]="password" 
+        name="password"
+        required
+        minlength="6"
+        #passwordInput="ngModel"
+        [disabled]="isSubmitting"
+      ></ion-input>
+    </ion-item>
+    
+    <ion-note color="danger" *ngIf="passwordInput.invalid && passwordInput.touched">
+      <span *ngIf="passwordInput.errors?.['required']">Senha é obrigatória</span>
+      <span *ngIf="passwordInput.errors?.['minlength']">
+        A senha deve ter pelo menos 6 caracteres
+      </span>
+    </ion-note>
+
+    <!-- Campo Confirmar Senha -->
+    <ion-item>
+      <ion-label position="floating">Confirmar Senha</ion-label>
+      <ion-input 
+        type="password" 
+        [(ngModel)]="confirmPassword" 
+        name="confirmPassword"
+        required
+        minlength="6"
+        #confirmPasswordInput="ngModel"
+        [disabled]="isSubmitting"
+      ></ion-input>
+    </ion-item>
+    
+    <ion-note color="danger" *ngIf="confirmPasswordInput.invalid && confirmPasswordInput.touched">
+      <span *ngIf="confirmPasswordInput.errors?.['required']">Confirmação de senha é obrigatória</span>
+      <span *ngIf="confirmPasswordInput.errors?.['minlength']">
+        A senha deve ter pelo menos 6 caracteres
+      </span>
+    </ion-note>
+
+    <!-- Botão de Registro -->
+    <ion-button 
+      expand="block" 
+      type="submit"
+      [disabled]="registerForm.invalid || isSubmitting"
+      class="submit-button ion-margin-top"
+    >
+      <ion-spinner *ngIf="isSubmitting" name="crescent"></ion-spinner>
+      <span *ngIf="!isSubmitting">Criar Conta</span>
+    </ion-button>
+  </form>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "myAutoFix",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

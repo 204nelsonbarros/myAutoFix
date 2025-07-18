@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Seção de cabeçalho com foto de perfil -->
+  <ion-card class="profile-header">
+    <div class="profile-image-container">
+      <img 
+        src="assets/images/perfil.png" 
+        alt="Foto de Perfil" 
+        (error)="handleImageError($event)"
+        class="profile-image"
+      >
+      <ion-button 
+        fill="clear" 
+        class="edit-image-button"
+        (click)="changeProfileImage()"
+      >
+        <ion-icon name="camera-outline"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-card>
+
+  <h1 class="profile-title">Meu Perfil</h1>
+
+  <!-- Card de informações pessoais -->
+  <ion-card class="info-card">
+    <ion-card-header>
+      <ion-card-title>Informações Pessoais</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item lines="none">
+        <ion-label><strong>Nome:</strong></ion-label>
+        <ion-text>{{ userName }}</ion-text>
+      </ion-item>
+      
+      <ion-item lines="none">
+        <ion-label><strong>E-mail:</strong></ion-label>
+        <ion-text>{{ userEmail }}</ion-text>
+      </ion-item>
+      
+      <ion-item lines="none">
+        <ion-label><strong>Telefone:</strong></ion-label>
+        <ion-text>{{ phoneNumber || 'Não informado' }}</ion-text>
+      </ion-item>
+      
+      <ion-item lines="none">
+        <ion-label><strong>Endereço:</strong></ion-label>
+        <ion-text>{{ address || 'Não informado' }}</ion-text>
+      </ion-item>
+      
+      <ion-item lines="none">
+        <ion-label><strong>Último Login:</strong></ion-label>
+        <ion-text>{{ lastLogin }}</ion-text>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Card de histórico -->
+  <ion-card class="info-card">
+    <ion-card-header>
+      <ion-card-title>Histórico</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item lines="none">
+        <ion-label><strong>Serviços Solicitados:</strong></ion-label>
+        <ion-badge color="primary">{{ serviceCount }}</ion-badge>
+      </ion-item>
+      
+      <ion-item lines="none">
+        <ion-label><strong>Último Serviço:</strong></ion-label>
+        <ion-text>Não disponível</ion-text>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Card de configurações -->
+  <ion-card class="info-card">
+    <ion-card-header>
+      <ion-card-title>Configurações</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button expand="block" (click)="editProfile()">
+        <ion-icon slot="start" name="create-outline"></ion-icon>
+        Editar Perfil
+      </ion-button>
+      
+      <ion-button expand="block" color="warning" (click)="changePassword()">
+        <ion-icon slot="start" name="key-outline"></ion-icon>
+        Alterar Senha
+      </ion-button>
+      
+      <ion-item lines="none">
+        <ion-toggle checked color="primary"></ion-toggle>
+        <ion-label>Ativar Notificações</ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Botões de ação -->
+  <ion-button expand="block" color="danger" (click)="logout()">
+    <ion-icon slot="start" name="log-out-outline"></ion-icon>
+    Sair
+  </ion-button>
+  
+  <ion-button expand="block" fill="outline" (click)="goBack()">
+    <ion-icon slot="start" name="home-outline"></ion-icon>
+    Voltar para Home
+  </ion-button>
+</ion-content>

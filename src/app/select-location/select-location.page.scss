@@ -1,0 +1,38 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+ion-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  --padding-start: 16px;
+  --padding-end: 16px;
+}
+
+ion-searchbar {
+  margin-bottom: 12px;
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+}
+
+#map {
+  flex-grow: 1;
+  height: 50vh;
+  width: 100%;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+ion-button {
+  margin-top: 8px;
+}
